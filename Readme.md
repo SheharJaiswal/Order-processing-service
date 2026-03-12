@@ -116,7 +116,7 @@ This service implements a **clean service architecture** with:
 
 ```bash
 # Clone the repository (if applicable)
-cd "Order Processing App"
+cd "Order-processing-service"
 
 # Option A — Start all services with Docker Compose (recommended)
 docker-compose up --build
@@ -543,7 +543,7 @@ OrderProcessingService/
 │   └── OrderProcessingService.Tests/
 │       ├── BusinessLogicTests.cs
 │       ├── StatusTransitionValidatorTests.cs
-│       ├── OrderProcessingService.Tests.csproj
+│       ├── OrderProcessingServiceTests.csproj
 │       └── bin/ & obj/           # Build artifacts
 ├── docker-compose.yml
 ├── Dockerfile
