@@ -1,7 +1,7 @@
 using FluentAssertions;
 using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Tests;
+namespace OrderProcessingService.Tests;
 
 /// <summary>
 /// Tests for stock reservation correctness through entity models.

@@ -2,7 +2,7 @@ using FluentAssertions;
 using OrderProcessingService.Dtos;
 using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Tests;
+namespace OrderProcessingService.Tests;
 
 /// <summary>
 /// Tests for order validation and business rule enforcement in OrderService.

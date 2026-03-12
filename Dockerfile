@@ -3,9 +3,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy solution and project files
-COPY OrderProcessingApp.sln .
-COPY src/OrderProcessingApp.Api/OrderProcessingApp.Api.csproj src/OrderProcessingApp.Api/
-COPY tests/OrderProcessingApp.Tests/OrderProcessingApp.Tests.csproj tests/OrderProcessingApp.Tests/
+COPY OrderProcessingService.sln .
+COPY src/OrderProcessingService.Api/OrderProcessingService.csproj src/OrderProcessingService.Api/
+COPY tests/OrderProcessingService.Tests/OrderProcessingServiceTests.csproj tests/OrderProcessingService.Tests/
 
 # Restore dependencies
 RUN dotnet restore
@@ -14,7 +14,7 @@ RUN dotnet restore
 COPY . .
 
 # Build and publish
-WORKDIR /app/src/OrderProcessingApp.Api
+WORKDIR /app/src/OrderProcessingService.Api
 RUN dotnet publish -c Release -o /app/out
 
 # Runtime stage
@@ -32,4 +32,4 @@ ENV ASPNETCORE_URLS=http://+:5000
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Run the application
-ENTRYPOINT ["dotnet", "OrderProcessingApp.Api.dll"]
+ENTRYPOINT ["dotnet", "OrderProcessingService.Api.dll"]

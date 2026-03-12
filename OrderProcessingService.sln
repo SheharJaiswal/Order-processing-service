@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{136A3673-E0BB-42B9-9FAC-A82CA716EF9B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessingService", "src\OrderProcessingApp.Api\OrderProcessingService.csproj", "{2EE92779-7774-4F22-8E0C-94F12A469839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessingService", "src\OrderProcessingService.Api\OrderProcessingService.csproj", "{2EE92779-7774-4F22-8E0C-94F12A469839}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3845CE9E-C2A6-4B09-8465-904CD06DF0BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessingApp.Tests", "tests\OrderProcessingApp.Tests\OrderProcessingApp.Tests.csproj", "{705F7B7E-8874-49F6-8B74-D9B74F431FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessingServiceTests", "tests\OrderProcessingService.Tests\OrderProcessingServiceTests.csproj", "{D8282580-F577-4110-BC62-C5D2F79166BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,16 +21,16 @@ Global
 		{2EE92779-7774-4F22-8E0C-94F12A469839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE92779-7774-4F22-8E0C-94F12A469839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE92779-7774-4F22-8E0C-94F12A469839}.Release|Any CPU.Build.0 = Release|Any CPU
-		{705F7B7E-8874-49F6-8B74-D9B74F431FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{705F7B7E-8874-49F6-8B74-D9B74F431FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{705F7B7E-8874-49F6-8B74-D9B74F431FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{705F7B7E-8874-49F6-8B74-D9B74F431FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8282580-F577-4110-BC62-C5D2F79166BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8282580-F577-4110-BC62-C5D2F79166BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8282580-F577-4110-BC62-C5D2F79166BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8282580-F577-4110-BC62-C5D2F79166BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2EE92779-7774-4F22-8E0C-94F12A469839} = {136A3673-E0BB-42B9-9FAC-A82CA716EF9B}
-		{705F7B7E-8874-49F6-8B74-D9B74F431FFB} = {3845CE9E-C2A6-4B09-8465-904CD06DF0BC}
+		{D8282580-F577-4110-BC62-C5D2F79166BD} = {3845CE9E-C2A6-4B09-8465-904CD06DF0BC}
 	EndGlobalSection
 EndGlobal

@@ -124,10 +124,10 @@ docker-compose up --build
 # Option B — Run the API locally using .NET (requires .NET 8 SDK)
 # Starts only the API project; ensure MongoDB/Redis/RabbitMQ are running or
 # update connection strings to use local services.
-dotnet run --project src/OrderProcessingApp.Api
+dotnet run --project src/OrderProcessingService.Api
 
 # Option C — Run the API with file-watch (auto-restart on changes)
-dotnet watch --project src/OrderProcessingApp.Api run
+dotnet watch --project src/OrderProcessingService.Api run
 ```
 
 This will start:
@@ -298,7 +298,7 @@ Publishes events to RabbitMQ on:
 
 ### Run Unit Tests
 ```bash
-cd tests/OrderProcessingApp.Tests
+cd tests/OrderProcessingService.Tests
 dotnet test
 ```
 
@@ -494,9 +494,9 @@ docker-compose up --build
 ## 📁 Project Structure
 
 ```
-OrderProcessingApp/
+OrderProcessingService/
 ├── src/
-│   └── OrderProcessingApp.Api/
+│   └── OrderProcessingService.Api/
 │       ├── Controllers/          # API endpoints
 │       │   ├── OrdersController.cs
 │       │   └── ProductsController.cs
@@ -540,14 +540,14 @@ OrderProcessingApp/
 │       ├── appsettings.Development.json
 │       └── Program.cs            # Application entry point & DI configuration
 ├── tests/
-│   └── OrderProcessingApp.Tests/
+│   └── OrderProcessingService.Tests/
 │       ├── BusinessLogicTests.cs
 │       ├── StatusTransitionValidatorTests.cs
-│       ├── OrderProcessingApp.Tests.csproj
+│       ├── OrderProcessingService.Tests.csproj
 │       └── bin/ & obj/           # Build artifacts
 ├── docker-compose.yml
 ├── Dockerfile
-├── OrderProcessingApp.sln
+├── OrderProcessingService.sln
 └── README.md
 ```
 

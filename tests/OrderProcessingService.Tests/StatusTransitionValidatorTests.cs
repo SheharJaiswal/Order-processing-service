@@ -3,7 +3,7 @@ using OrderProcessingService.Entities;
 using OrderProcessingService.Exceptions;
 using OrderProcessingService.Services;
 
-namespace OrderProcessingApp.Tests;
+namespace OrderProcessingService.Tests;
 
 public class StatusTransitionValidatorTests
 {

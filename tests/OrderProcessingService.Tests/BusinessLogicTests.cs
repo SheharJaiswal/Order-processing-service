@@ -4,7 +4,7 @@ using OrderProcessingService.Dtos;
 using OrderProcessingService.Entities;
 using OrderProcessingService.Exceptions;
 
-namespace OrderProcessingApp.Tests;
+namespace OrderProcessingService.Tests;
 
 public class InventoryServiceTests
 {
