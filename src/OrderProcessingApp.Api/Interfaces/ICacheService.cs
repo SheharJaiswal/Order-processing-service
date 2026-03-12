@@ -1,4 +1,4 @@
-namespace OrderProcessingApp.Api.Interfaces;
+namespace OrderProcessingService.Interfaces;
 
 public interface ICacheService
 {

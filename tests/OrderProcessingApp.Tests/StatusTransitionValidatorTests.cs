@@ -1,7 +1,7 @@
 using FluentAssertions;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Services;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Exceptions;
+using OrderProcessingService.Services;
 
 namespace OrderProcessingApp.Tests;
 

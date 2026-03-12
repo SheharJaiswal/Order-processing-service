@@ -1,4 +1,4 @@
-namespace OrderProcessingApp.Api.Exceptions;
+namespace OrderProcessingService.Exceptions;
 
 public class OrderNotFoundException : Exception
 {

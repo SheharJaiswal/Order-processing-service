@@ -1,8 +1,8 @@
 using StackExchange.Redis;
 using System.Text.Json;
-using OrderProcessingApp.Api.Interfaces;
+using OrderProcessingService.Interfaces;
 
-namespace OrderProcessingApp.Api.Services;
+namespace OrderProcessingService.Services;
 
 public class CacheService : ICacheService
 {
@@ -16,8 +16,8 @@ public class CacheService : ICacheService
         _database = redis.GetDatabase();
         _server = redis.GetServer(redis.GetEndPoints().First());
         _logger = logger;
-        
-        var defaultTtl = configuration.GetValue<int>("Cache:DefaultTTLSeconds", 3600);
+
+        var defaultTtl = configuration.GetValue("Cache:DefaultTTLSeconds", 3600);
         _defaultExpiration = TimeSpan.FromSeconds(defaultTtl);
     }
 
@@ -26,7 +26,7 @@ public class CacheService : ICacheService
         try
         {
             var value = await _database.StringGetAsync(key);
-            
+
             if (!value.HasValue)
             {
                 _logger.LogDebug("Cache miss for key: {Key}", key);
@@ -49,7 +49,7 @@ public class CacheService : ICacheService
         {
             var serialized = JsonSerializer.Serialize(value);
             var ttl = expiration ?? _defaultExpiration;
-            
+
             await _database.StringSetAsync(key, serialized, ttl);
             _logger.LogDebug("Cached value for key: {Key} with TTL: {TTL}s", key, ttl.TotalSeconds);
         }
@@ -77,7 +77,7 @@ public class CacheService : ICacheService
         try
         {
             var keys = _server.Keys(pattern: pattern).ToArray();
-            
+
             if (keys.Length > 0)
             {
                 await _database.KeyDeleteAsync(keys);

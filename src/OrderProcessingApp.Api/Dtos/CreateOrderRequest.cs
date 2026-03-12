@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace OrderProcessingApp.Api.Dtos;
+namespace OrderProcessingService.Dtos;
 
 public class CreateOrderRequest
 {

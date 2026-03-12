@@ -1,6 +1,6 @@
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Exceptions;
+namespace OrderProcessingService.Exceptions;
 
 public class InvalidOrderStatusTransitionException : Exception
 {

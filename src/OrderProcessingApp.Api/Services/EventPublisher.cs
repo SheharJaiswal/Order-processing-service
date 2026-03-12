@@ -1,11 +1,11 @@
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
-using OrderProcessingApp.Api.Events;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Interfaces;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Interfaces;
+using OrderProcessingService.Events;
 
-namespace OrderProcessingApp.Api.Services;
+namespace OrderProcessingService.Services;
 
 public class EventPublisher : IEventPublisher
 {

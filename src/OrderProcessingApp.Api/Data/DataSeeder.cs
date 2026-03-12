@@ -1,7 +1,7 @@
 using MongoDB.Driver;
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Data;
+namespace OrderProcessingService.Data;
 
 public class DataSeeder : IHostedService
 {
@@ -29,7 +29,7 @@ public class DataSeeder : IHostedService
         try
         {
             var count = await context.Products.CountDocumentsAsync(FilterDefinition<Product>.Empty);
-            
+
             if (count > 0)
             {
                 _logger.LogInformation("Products already seeded. Skipping seed operation.");

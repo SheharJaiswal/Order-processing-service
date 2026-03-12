@@ -1,5 +1,5 @@
 using FluentAssertions;
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
 namespace OrderProcessingApp.Tests;
 

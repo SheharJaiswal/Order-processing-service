@@ -1,12 +1,6 @@
 using FluentAssertions;
-using Microsoft.Extensions.Logging;
-using Moq;
-using OrderProcessingApp.Api.Dtos;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Interfaces;
-using OrderProcessingApp.Api.Services;
-using OrderProcessingApp.Api.Data;
+using OrderProcessingService.Dtos;
+using OrderProcessingService.Entities;
 
 namespace OrderProcessingApp.Tests;
 

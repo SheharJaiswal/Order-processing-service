@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\OrderProcessingApp.Api\OrderProcessingApp.Api.csproj" />
+    <ProjectReference Include="..\..\src\OrderProcessingApp.Api\OrderProcessingService.csproj" />
   </ItemGroup>
 
 </Project>

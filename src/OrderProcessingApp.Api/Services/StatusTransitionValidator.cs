@@ -1,7 +1,7 @@
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Exceptions;
 
-namespace OrderProcessingApp.Api.Services;
+namespace OrderProcessingService.Services;
 
 public static class StatusTransitionValidator
 {

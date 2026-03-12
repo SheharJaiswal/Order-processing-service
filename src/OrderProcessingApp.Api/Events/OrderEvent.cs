@@ -1,4 +1,4 @@
-namespace OrderProcessingApp.Api.Events;
+namespace OrderProcessingService.Events;
 
 public abstract class OrderEvent
 {

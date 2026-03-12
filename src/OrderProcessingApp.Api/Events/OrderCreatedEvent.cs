@@ -1,6 +1,4 @@
-using OrderProcessingApp.Api.Entities;
-
-namespace OrderProcessingApp.Api.Events;
+namespace OrderProcessingService.Events;
 
 public class OrderCreatedEvent : OrderEvent
 {

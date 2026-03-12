@@ -1,10 +1,10 @@
 using MongoDB.Driver;
-using OrderProcessingApp.Api.Data;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Interfaces;
+using OrderProcessingService.Data;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Exceptions;
+using OrderProcessingService.Interfaces;
 
-namespace OrderProcessingApp.Api.Services;
+namespace OrderProcessingService.Services;
 
 public class InventoryService : IInventoryService
 {
@@ -43,7 +43,7 @@ public class InventoryService : IInventoryService
         {
             // Either product doesn't exist or insufficient stock
             var product = await _context.Products.Find(p => p.Id == productId).FirstOrDefaultAsync();
-            
+
             if (product == null)
             {
                 throw new ProductNotFoundException(productId);
@@ -78,7 +78,7 @@ public class InventoryService : IInventoryService
     public async Task<int> GetProductStockAsync(string productId)
     {
         var product = await _context.Products.Find(p => p.Id == productId).FirstOrDefaultAsync();
-        
+
         if (product == null)
         {
             throw new ProductNotFoundException(productId);

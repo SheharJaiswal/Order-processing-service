@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Dtos;
+namespace OrderProcessingService.Dtos;
 
 public class StatusTransitionRequest
 {

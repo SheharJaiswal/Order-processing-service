@@ -1,6 +1,6 @@
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Events;
+namespace OrderProcessingService.Events;
 
 public class OrderStatusChangedEvent : OrderEvent
 {

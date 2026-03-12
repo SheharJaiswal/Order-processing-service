@@ -1,11 +1,11 @@
 using MongoDB.Driver;
-using OrderProcessingApp.Api.Data;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Interfaces;
-using OrderProcessingApp.Api.Dtos;
+using OrderProcessingService.Interfaces;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Dtos;
+using OrderProcessingService.Data;
+using OrderProcessingService.Exceptions;
 
-namespace OrderProcessingApp.Api.Services;
+namespace OrderProcessingService.Services;
 
 public class OrderService : IOrderService
 {
@@ -48,7 +48,7 @@ public class OrderService : IOrderService
         foreach (var item in request.Items)
         {
             var product = await _context.Products.Find(p => p.Id == item.ProductId).FirstOrDefaultAsync();
-            
+
             if (product == null)
             {
                 throw new ProductNotFoundException(item.ProductId);
@@ -108,7 +108,7 @@ public class OrderService : IOrderService
         {
             // Rollback stock reservation if order creation fails
             _logger.LogError(ex, "Failed to create order - rolling back stock reservations");
-            
+
             foreach (var item in orderItems)
             {
                 try
@@ -178,7 +178,7 @@ public class OrderService : IOrderService
             order.CancelReason = request.CancelReason ?? "No reason provided";
 
             _logger.LogInformation("Cancelling order {OrderId} - releasing stock", orderId);
-            
+
             foreach (var item in order.Items)
             {
                 await _inventoryService.ReleaseStockAsync(item.ProductId, item.Quantity);

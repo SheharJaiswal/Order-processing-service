@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using OrderProcessingApp.Api.Interfaces;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Dtos;
+using OrderProcessingService.Interfaces;
+using OrderProcessingService.Dtos;
+using OrderProcessingService.Exceptions;
 
-namespace OrderProcessingApp.Api.Controllers;
+namespace OrderProcessingService.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -33,9 +33,9 @@ public class OrdersController : ControllerBase
         try
         {
             var order = await _orderService.CreateOrderAsync(request);
-            
+
             _logger.LogInformation("Order {OrderNumber} created successfully", order.OrderNumber);
-            
+
             return CreatedAtAction(
                 nameof(GetOrderById),
                 new { id = order.Id },
@@ -45,18 +45,18 @@ public class OrdersController : ControllerBase
         catch (ProductNotFoundException ex)
         {
             _logger.LogWarning("Product not found: {Message}", ex.Message);
-            return BadRequest(new 
-            { 
-                error = ex.Message, 
+            return BadRequest(new
+            {
+                error = ex.Message,
                 code = "PRODUCT_NOT_FOUND",
-                timestamp = DateTime.UtcNow 
+                timestamp = DateTime.UtcNow
             });
         }
         catch (InsufficientStockException ex)
         {
             _logger.LogWarning("Insufficient stock: {Message}", ex.Message);
-            return Conflict(new 
-            { 
+            return Conflict(new
+            {
                 error = ex.Message,
                 code = "INSUFFICIENT_STOCK",
                 productId = ex.ProductId,
@@ -68,8 +68,8 @@ public class OrdersController : ControllerBase
         catch (ArgumentException ex)
         {
             _logger.LogWarning("Validation error: {Message}", ex.Message);
-            return BadRequest(new 
-            { 
+            return BadRequest(new
+            {
                 error = ex.Message,
                 code = "VALIDATION_ERROR",
                 timestamp = DateTime.UtcNow
@@ -78,8 +78,8 @@ public class OrdersController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error creating order");
-            return StatusCode(500, new 
-            { 
+            return StatusCode(500, new
+            {
                 error = "Internal server error occurred while creating order",
                 code = "INTERNAL_ERROR",
                 timestamp = DateTime.UtcNow
@@ -105,8 +105,8 @@ public class OrdersController : ControllerBase
         catch (OrderNotFoundException ex)
         {
             _logger.LogWarning("Order {OrderId} not found", id);
-            return NotFound(new 
-            { 
+            return NotFound(new
+            {
                 error = ex.Message,
                 code = "ORDER_NOT_FOUND",
                 timestamp = DateTime.UtcNow
@@ -133,8 +133,8 @@ public class OrdersController : ControllerBase
         catch (OrderNotFoundException ex)
         {
             _logger.LogWarning("Order {OrderId} not found", id);
-            return NotFound(new 
-            { 
+            return NotFound(new
+            {
                 error = ex.Message,
                 code = "ORDER_NOT_FOUND",
                 timestamp = DateTime.UtcNow
@@ -143,8 +143,8 @@ public class OrdersController : ControllerBase
         catch (InvalidOrderStatusTransitionException ex)
         {
             _logger.LogWarning("Invalid status transition: {Message}", ex.Message);
-            return BadRequest(new 
-            { 
+            return BadRequest(new
+            {
                 error = ex.Message,
                 code = "INVALID_STATUS_TRANSITION",
                 currentStatus = ex.CurrentStatus.ToString(),
@@ -155,8 +155,8 @@ public class OrdersController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error transitioning order status");
-            return StatusCode(500, new 
-            { 
+            return StatusCode(500, new
+            {
                 error = "Internal server error occurred while updating order status",
                 code = "INTERNAL_ERROR",
                 timestamp = DateTime.UtcNow

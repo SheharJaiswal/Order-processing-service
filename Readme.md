@@ -118,8 +118,16 @@ This service implements a **clean service architecture** with:
 # Clone the repository (if applicable)
 cd "Order Processing App"
 
-# Start all services with a single command
+# Option A — Start all services with Docker Compose (recommended)
 docker-compose up --build
+
+# Option B — Run the API locally using .NET (requires .NET 8 SDK)
+# Starts only the API project; ensure MongoDB/Redis/RabbitMQ are running or
+# update connection strings to use local services.
+dotnet run --project src/OrderProcessingApp.Api
+
+# Option C — Run the API with file-watch (auto-restart on changes)
+dotnet watch --project src/OrderProcessingApp.Api run
 ```
 
 This will start:

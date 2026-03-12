@@ -1,9 +1,9 @@
 using Serilog;
 using StackExchange.Redis;
 using RabbitMQ.Client;
-using OrderProcessingApp.Api.Data;
-using OrderProcessingApp.Api.Services;
-using OrderProcessingApp.Api.Interfaces;
+using OrderProcessingService.Interfaces;
+using OrderProcessingService.Data;
+using OrderProcessingService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

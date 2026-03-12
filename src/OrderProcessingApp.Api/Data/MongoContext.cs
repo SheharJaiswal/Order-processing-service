@@ -1,7 +1,7 @@
 using MongoDB.Driver;
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Data;
+namespace OrderProcessingService.Data;
 
 public class MongoContext
 {

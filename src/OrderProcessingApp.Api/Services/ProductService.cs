@@ -1,10 +1,10 @@
 using MongoDB.Driver;
-using OrderProcessingApp.Api.Data;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Interfaces;
+using OrderProcessingService.Interfaces;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Data;
+using OrderProcessingService.Exceptions;
 
-namespace OrderProcessingApp.Api.Services;
+namespace OrderProcessingService.Services;
 
 public class ProductService : IProductService
 {
@@ -26,7 +26,7 @@ public class ProductService : IProductService
     {
         // Try to get from cache first
         var cachedProducts = await _cacheService.GetAsync<List<Product>>(ProductsListCacheKey);
-        
+
         if (cachedProducts != null)
         {
             _logger.LogDebug("Returning products from cache");
@@ -46,10 +46,10 @@ public class ProductService : IProductService
     public async Task<Product> GetProductByIdAsync(string productId)
     {
         var cacheKey = $"{ProductCacheKeyPrefix}{productId}";
-        
+
         // Try to get from cache first
         var cachedProduct = await _cacheService.GetAsync<Product>(cacheKey);
-        
+
         if (cachedProduct != null)
         {
             _logger.LogDebug("Returning product {ProductId} from cache", productId);

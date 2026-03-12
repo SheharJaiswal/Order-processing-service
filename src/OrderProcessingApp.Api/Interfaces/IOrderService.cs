@@ -1,7 +1,7 @@
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Dtos;
+using OrderProcessingService.Dtos;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Interfaces;
+namespace OrderProcessingService.Interfaces;
 
 public interface IOrderService
 {

@@ -1,8 +1,8 @@
 using FluentAssertions;
 using MongoDB.Driver;
-using OrderProcessingApp.Api.Exceptions;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Dtos;
+using OrderProcessingService.Dtos;
+using OrderProcessingService.Entities;
+using OrderProcessingService.Exceptions;
 
 namespace OrderProcessingApp.Tests;
 

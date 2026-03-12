@@ -1,6 +1,6 @@
-using OrderProcessingApp.Api.Entities;
+using OrderProcessingService.Entities;
 
-namespace OrderProcessingApp.Api.Interfaces;
+namespace OrderProcessingService.Interfaces;
 
 public interface IProductService
 {

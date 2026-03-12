@@ -1,4 +1,4 @@
-namespace OrderProcessingApp.Api.Entities;
+namespace OrderProcessingService.Entities;
 
 public class OrderItem
 {

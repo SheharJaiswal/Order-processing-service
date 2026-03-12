@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using OrderProcessingApp.Api.Entities;
-using OrderProcessingApp.Api.Services;
-using OrderProcessingApp.Api.Interfaces;
+using OrderProcessingService.Exceptions;
+using OrderProcessingService.Interfaces;
 
-namespace OrderProcessingApp.Api.Controllers;
+namespace OrderProcessingService.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -26,9 +25,9 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> GetAllProducts()
     {
         _logger.LogInformation("GET /api/products - Fetching all products");
-        
+
         var products = await _productService.GetAllProductsAsync();
-        
+
         return Ok(products);
     }
 
@@ -41,13 +40,13 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> GetProductById(string id)
     {
         _logger.LogInformation("GET /api/products/{ProductId} - Fetching product", id);
-        
+
         try
         {
             var product = await _productService.GetProductByIdAsync(id);
             return Ok(product);
         }
-        catch (Exceptions.ProductNotFoundException ex)
+        catch (ProductNotFoundException ex)
         {
             _logger.LogWarning("Product {ProductId} not found", id);
             return NotFound(new { error = ex.Message, code = "PRODUCT_NOT_FOUND" });
